@@ -1,20 +1,46 @@
 package com.example.imagetest
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.imagetest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private val binding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        setContentView(binding.root)
+
+        binding.btn1.setOnClickListener {
+            startActivity(Intent(this, ActivityResultAPIActivity::class.java))
+        }
+
+        binding.btn2.setOnClickListener {
+            startActivity(Intent(this, StartActivityForResultActivity::class.java))
+        }
+
+        binding.btn3.setOnClickListener {
+            startActivity(Intent(this, ActionPickActivity::class.java))
+        }
+
+        binding.btn4.setOnClickListener {
+            startActivity(Intent(this, ActionOpenDocumentActivity::class.java))
+        }
+
+        binding.btn5.setOnClickListener {
+            startActivity(Intent(this, StorageAccessFrameworkActivity::class.java))
+        }
+
+        binding.btn6.setOnClickListener {
+            startActivity(Intent(this, MediaStoreAPIActivity::class.java))
+        }
+
+        binding.btn7.setOnClickListener {
+            startActivity(Intent(this, FileProviderActivity::class.java))
         }
     }
 }

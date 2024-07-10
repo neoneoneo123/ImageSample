@@ -38,9 +38,5 @@ class MainActivity : AppCompatActivity() {
         binding.btn6.setOnClickListener {
             startActivity(Intent(this, MediaStoreAPIActivity::class.java))
         }
-
-        binding.btn7.setOnClickListener {
-            startActivity(Intent(this, FileProviderActivity::class.java))
-        }
     }
 }
